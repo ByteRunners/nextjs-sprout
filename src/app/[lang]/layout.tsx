@@ -3,9 +3,14 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import { i18n, Locale } from '@/i18n.config'
 import Providers from '@/providers'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export async function generateStaticParams() {
+	return i18n.locales.map((locale) => ({ lang: locale }))
+}
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -13,12 +18,15 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-	children
+	children,
+	params
 }: {
 	children: React.ReactNode
+	params: { lang: Locale }
 }) {
+	const lang = params.lang
 	return (
-		<html lang='en'>
+		<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
 			<body className={inter.className}>
 				<Providers>{children}</Providers>
 			</body>
