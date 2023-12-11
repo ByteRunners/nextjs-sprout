@@ -1,11 +1,11 @@
 import { render, screen, within } from '@testing-library/react'
 
-import Home from '@/app/page'
+import Home from '../src/app/[lang]/page'
 
 describe('Home', () => {
-	it('should have Docs text', () => {
+	it('should have Docs text', async () => {
 		// arrange
-		render(<Home />)
+		render(await Home({ params: { lang: 'en' } }))
 
 		// act
 		const myElement = screen.getByText('Docs')
@@ -14,9 +14,9 @@ describe('Home', () => {
 		expect(myElement).toBeInTheDocument()
 	})
 
-	it('should contain the text "information"', () => {
+	it('should contain the text "information"', async () => {
 		// arrange
-		render(<Home />)
+		render(await Home({ params: { lang: 'en' } }))
 
 		// act
 		const myElement = screen.getByText(/information/i)
@@ -25,9 +25,9 @@ describe('Home', () => {
 		expect(myElement).toBeInTheDocument()
 	})
 
-	it('should have an alternative text attribute on the image', () => {
+	it('should have an alternative text attribute on the image', async () => {
 		// arrange
-		render(<Home />)
+		render(await Home({ params: { lang: 'en' } }))
 
 		// act
 		const imageLink = screen.getByRole('link', { name: /By Vercel Logo/ })
@@ -37,9 +37,9 @@ describe('Home', () => {
 		expect(image).toHaveAttribute('alt', 'Vercel Logo')
 	})
 
-	it('should open the links in a new tab', () => {
+	it('should open the links in a new tab', async () => {
 		// arrange
-		render(<Home />)
+		render(await Home({ params: { lang: 'en' } }))
 
 		// act
 		const links = screen.getAllByRole('link')
