@@ -77,8 +77,8 @@
 				"@typescript-eslint/explicit-module-boundary-types": ["off"],
 				"@typescript-eslint/no-empty-function": ["off"],
 				"@typescript-eslint/no-explicit-any": ["off"],
-				// "prettier/prettier": ["error", {}, { "usePrettierrc": true }], //disabled for build issue on github
-				// "tailwindcss/classnames-order": "warn", //disabled for build issue on github
+				"prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+				"tailwindcss/classnames-order": "warn",
 				"tailwindcss/no-custom-classname": "warn",
 				"tailwindcss/no-contradicting-classname": "error",
 
