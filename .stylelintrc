@@ -1,9 +1,5 @@
 {
-	"extends": [
-		"stylelint-config-standard",
-		"stylelint-config-idiomatic-order",
-		"stylelint-config-styled-components"
-	],
+	"extends": ["stylelint-config-standard", "stylelint-config-idiomatic-order"],
 	"customSyntax": "postcss-syntax",
 	"rules": {
 		"at-rule-no-unknown": null,
